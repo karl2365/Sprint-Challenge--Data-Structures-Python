@@ -5,7 +5,7 @@ class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
         self.current = None
-        
+
         self.storage = DoublyLinkedList()
 
     def append(self, item):
