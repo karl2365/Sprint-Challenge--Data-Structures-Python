@@ -5,31 +5,21 @@ class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
         self.current = None
+        
         self.storage = DoublyLinkedList()
 
     def append(self, item):
-        # check if length of storage is zero
         if len(self.storage) == 0:
-            # if is set new item to head
             self.storage.add_to_head(item)
-            # and set current to head
             self.current = self.storage.head
-        # elif length of strorage list is less than capacity
         elif len(self.storage) < self.capacity:
-            # add new item to the tail of list
             self.storage.add_to_tail(item)
-        # elif storage list is at capacity
         elif len(self.storage) == self.capacity:
-            # Check if self.current.next is None
             if self.current.next:
-                # replace value of current with new item
                 self.current.value = item
-                # increment the current item to next node
                 self.current = self.current.next
             else:
-                 # replace value of current with new item
                 self.current.value = item
-                # increment the current item back to beginning of list
                 self.current = self.storage.head
 
     def get(self):
