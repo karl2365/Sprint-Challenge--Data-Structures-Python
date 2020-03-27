@@ -30,9 +30,7 @@ class BinarySearchTree:
     # False if it does not
 
     def contains(self, target):
-        """
-        Angry Linter
-        """
+     
         if self.value:
             if target == self.value:
                 return True
